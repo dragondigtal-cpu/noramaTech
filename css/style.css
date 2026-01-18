@@ -875,6 +875,25 @@ a:hover {
     align-items: center;
 }
 
+@media (max-width: 1024px) {
+    .about-content {
+        gap: var(--spacing-lg);
+    }
+}
+
+@media (max-width: 768px) {
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+}
+
+@media (max-width: 480px) {
+    .about-content {
+        gap: var(--spacing-md);
+    }
+}
+
 .about-text {
     animation: slideInLeft 0.8s ease-out;
 }
@@ -886,6 +905,21 @@ a:hover {
     font-size: 1.05rem;
 }
 
+@media (max-width: 768px) {
+    .about-text p {
+        font-size: 1rem;
+        line-height: 1.8;
+        margin-bottom: var(--spacing-md);
+    }
+}
+
+@media (max-width: 480px) {
+    .about-text p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+}
+
 .about-text h3 {
     color: var(--primary-color);
     margin-top: var(--spacing-lg);
@@ -893,6 +927,21 @@ a:hover {
     position: relative;
     padding-left: 20px;
     transition: all var(--transition-normal);
+}
+
+@media (max-width: 768px) {
+    .about-text h3 {
+        margin-top: var(--spacing-md);
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-text h3 {
+        font-size: 1.1rem;
+        margin-top: var(--spacing-sm);
+        margin-bottom: var(--spacing-sm);
+    }
 }
 
 .about-text h3::before {
@@ -914,6 +963,26 @@ a:hover {
     gap: var(--spacing-md);
 }
 
+@media (max-width: 1024px) {
+    .about-stats {
+        gap: var(--spacing-md);
+    }
+}
+
+@media (max-width: 768px) {
+    .about-stats {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-md);
+    }
+}
+
+@media (max-width: 480px) {
+    .about-stats {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-sm);
+    }
+}
+
 .stat-card {
     background: var(--bg-secondary);
     padding: var(--spacing-lg);
@@ -924,6 +993,18 @@ a:hover {
     position: relative;
     overflow: hidden;
     animation: pulse-glow 3.5s ease-in-out infinite;
+}
+
+@media (max-width: 768px) {
+    .stat-card {
+        padding: var(--spacing-md);
+    }
+}
+
+@media (max-width: 480px) {
+    .stat-card {
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
 }
 
 .stat-card::before {
@@ -965,6 +1046,19 @@ a:hover {
     margin-bottom: var(--spacing-sm);
 }
 
+@media (max-width: 768px) {
+    .stat-number {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .stat-number {
+        font-size: 1.5rem;
+        margin-bottom: 8px;
+    }
+}
+
 .stat-label {
     color: var(--text-secondary);
     font-size: 0.95rem;
@@ -973,12 +1067,15 @@ a:hover {
 }
 
 @media (max-width: 768px) {
-    .about-content {
-        grid-template-columns: 1fr;
+    .stat-label {
+        font-size: 0.85rem;
     }
+}
 
-    .about-stats {
-        grid-template-columns: 1fr 1fr;
+@media (max-width: 480px) {
+    .stat-label {
+        font-size: 0.75rem;
+        letter-spacing: 0.03em;
     }
 }
 
