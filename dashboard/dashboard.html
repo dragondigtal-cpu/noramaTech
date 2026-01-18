@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Norama Tech - Admin Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2>Dashboard</h2>
+            <button class="sidebar-close" id="sidebarClose">✕</button>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="#general" class="nav-item active" data-section="general">
+                <span class="icon">⚙️</span>
+                <span>General</span>
+            </a>
+            <a href="#content" class="nav-item" data-section="content">
+                <span class="icon">📝</span>
+                <span>Content</span>
+            </a>
+            <a href="#design" class="nav-item" data-section="design">
+                <span class="icon">🎨</span>
+                <span>Design</span>
+            </a>
+            <a href="#pages" class="nav-item" data-section="pages">
+                <span class="icon">📄</span>
+                <span>Pages</span>
+            </a>
+            <a href="#animations" class="nav-item" data-section="animations">
+                <span class="icon">✨</span>
+                <span>Animations</span>
+            </a>
+            <a href="#languages" class="nav-item" data-section="languages">
+                <span class="icon">🌐</span>
+                <span>Languages</span>
+            </a>
+            <a href="#preview" class="nav-item" data-section="preview">
+                <span class="icon">👁️</span>
+                <span>Live Preview</span>
+            </a>
+            <a href="../index.html" class="nav-item" target="_blank">
+                <span class="icon">🏠</span>
+                <span>View Site</span>
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Top Navbar -->
+    <nav class="dashboard-navbar">
+        <div class="navbar-left">
+            <button class="menu-toggle" id="sidebarToggle">☰</button>
+            <h1>Norama Tech Admin Dashboard</h1>
+        </div>
+        <div class="navbar-right">
+            <div class="theme-toggle-wrapper">
+                <button class="theme-toggle" id="dashThemeToggle">🌙</button>
+            </div>
+            <button class="logout-btn" onclick="window.location='../index.html'">Exit Dashboard</button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="dashboard-main">
+        <div class="dashboard-container">
+
+            <!-- GENERAL SECTION -->
+            <section class="dashboard-section active" id="general">
+                <h2 class="section-title">General Settings</h2>
+                <div class="settings-grid">
+                    <div class="card">
+                        <h3>Company Information</h3>
+                        <div class="form-group">
+                            <label>Company Name</label>
+                            <input type="text" id="companyNameInput" placeholder="Norama Tech" class="form-input">
+                            <button class="btn btn-primary" onclick="saveCompanyName()">Save</button>
+                        </div>
+                        <div class="form-group">
+                            <label>Company Logo</label>
+                            <input type="text" id="logoInput" placeholder="Logo text or URL" class="form-input">
+                            <button class="btn btn-primary" onclick="saveLogoText()">Save</button>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3>Appearance</h3>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" id="darkModeToggle"> Force Dark Mode
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" id="animationsToggle" checked> Enable Animations
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label>Default Language</label>
+                            <select id="defaultLanguage" class="form-input">
+                                <option value="en">English</option>
+                                <option value="ar">العربية (Arabic)</option>
+                            </select>
+                            <button class="btn btn-primary" onclick="saveDefaultLanguage()">Save</button>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3>Content Visibility</h3>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" id="homeVisible" checked> Home Section
+                            </label>
+                            <label>
+                                <input type="checkbox" id="aboutVisible" checked> About Section
+                            </label>
+                            <label>
+                                <input type="checkbox" id="servicesVisible" checked> Services Section
+                            </label>
+                            <label>
+                                <input type="checkbox" id="coursesVisible" checked> Courses Section
+                            </label>
+                            <label>
+                                <input type="checkbox" id="portfolioVisible" checked> Portfolio Section
+                            </label>
+                            <label>
+                                <input type="checkbox" id="contactVisible" checked> Contact Section
+                            </label>
+                            <button class="btn btn-primary" onclick="saveSectionVisibility()">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CONTENT SECTION -->
+            <section class="dashboard-section" id="content">
+                <h2 class="section-title">Edit Content</h2>
+                <div class="settings-grid">
+                    <div class="card">
+                        <h3>Hero Section</h3>
+                        <div class="form-group">
+                            <label>Hero Title</label>
+                            <input type="text" id="heroTitleInput" class="form-input">
+                            <button class="btn btn-primary" onclick="saveHeroTitle()">Update</button>
+                        </div>
+                        <div class="form-group">
+                            <label>Hero Subtitle</label>
+                            <input type="text" id="heroSubtitleInput" class="form-input">
+                            <button class="btn btn-primary" onclick="saveHeroSubtitle()">Update</button>
+                        </div>
+                        <div class="form-group">
+                            <label>Hero Description</label>
+                            <textarea id="heroDescInput" class="form-input" rows="3"></textarea>
+                            <button class="btn btn-primary" onclick="saveHeroDesc()">Update</button>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3>About Section</h3>
+                        <div class="form-group">
+                            <label>About Description</label>
+                            <textarea id="aboutDescInput" class="form-input" rows="4"></textarea>
+                            <button class="btn btn-primary" onclick="saveAboutDesc()">Update</button>
+                        </div>
+                        <div class="form-group">
+                            <label>Vision Statement</label>
+                            <textarea id="visionInput" class="form-input" rows="4"></textarea>
+                            <button class="btn btn-primary" onclick="saveVision()">Update</button>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3>Call To Action Button</h3>
+                        <div class="form-group">
+                            <label>Button Text</label>
+                            <input type="text" id="ctaTextInput" class="form-input">
+                            <button class="btn btn-primary" onclick="saveCtaText()">Update</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- DESIGN SECTION -->
+            <section class="dashboard-section" id="design">
+                <h2 class="section-title">Design & Colors</h2>
+                <div class="settings-grid">
+                    <div class="card">
+                        <h3>Primary Colors</h3>
+                        <div class="form-group">
+                            <label>Primary Color (Neon Green)</label>
+                            <div class="color-picker-group">
+                                <input type="color" id="primaryColor" class="color-input" value="#00ff88">
+                                <input type="text" id="primaryColorHex" class="color-hex" value="#00ff88">
+                            </div>
+                            <button class="btn btn-primary" onclick="savePrimaryColor()">Apply</button>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Secondary Color (Pink)</label>
+                            <div class="color-picker-group">
+                                <input type="color" id="secondaryColor" class="color-input" value="#ff0099">
+                                <input type="text" id="secondaryColorHex" class="color-hex" value="#ff0099">
+                            </div>
+                            <button class="btn btn-primary" onclick="saveSecondaryColor()">Apply</button>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Tertiary Color (Cyan)</label>
+                            <div class="color-picker-group">
+                                <input type="color" id="tertiaryColor" class="color-input" value="#00d9ff">
+                                <input type="text" id="tertiaryColorHex" class="color-hex" value="#00d9ff">
+                            </div>
+                            <button class="btn btn-primary" onclick="saveTertiaryColor()">Apply</button>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3>Typography</h3>
+                        <div class="form-group">
+                            <label>Font Family</label>
+                            <select id="fontFamily" class="form-input">
+                                <option value="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Segoe UI</option>
+                                <option value="'Arial', sans-serif">Arial</option>
+                                <option value="'Times New Roman', serif">Times New Roman</option>
+                                <option value="'Courier New', monospace">Courier New</option>
+                            </select>
+                            <button class="btn btn-primary" onclick="saveFontFamily()">Apply</button>
+                        </div>
+                        <div class="form-group">
+                            <label>Base Font Size (%)</label>
+                            <input type="range" id="fontSizeSlider" min="80" max="120" value="100" class="slider">
+                            <span id="fontSizeValue">100%</span>
+                            <button class="btn btn-primary" onclick="saveFontSize()">Apply</button>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3>Layout</h3>
+                        <div class="form-group">
+                            <label>Border Radius</label>
+                            <input type="range" id="borderRadiusSlider" min="0" max="50" value="16" class="slider">
+                            <span id="borderRadiusValue">16px</span>
+                            <button class="btn btn-primary" onclick="saveBorderRadius()">Apply</button>
+                        </div>
+                        <div class="form-group">
+                            <label>Shadow Intensity</label>
+                            <input type="range" id="shadowSlider" min="0" max="100" value="50" class="slider">
+                            <span id="shadowValue">Medium</span>
+                            <button class="btn btn-primary" onclick="saveShadowIntensity()">Apply</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PAGES SECTION -->
+            <section class="dashboard-section" id="pages">
+                <h2 class="section-title">Page Management</h2>
+                <div class="settings-grid">
+                    <div class="card">
+                        <h3>Page Visibility</h3>
+                        <div class="pages-list">
+                            <div class="page-item">
+                                <label>
+                                    <input type="checkbox" class="page-toggle" data-page="home" checked>
+                                    Home
+                                </label>
+                                <span class="page-status">Visible</span>
+                            </div>
+                            <div class="page-item">
+                                <label>
+                                    <input type="checkbox" class="page-toggle" data-page="about" checked>
+                                    About Us
+                                </label>
+                                <span class="page-status">Visible</span>
+                            </div>
+                            <div class="page-item">
+                                <label>
+                                    <input type="checkbox" class="page-toggle" data-page="services" checked>
+                                    Services
+                                </label>
+                                <span class="page-status">Visible</span>
+                            </div>
+                            <div class="page-item">
+                                <label>
+                                    <input type="checkbox" class="page-toggle" data-page="courses" checked>
+                                    Courses
+                                </label>
+                                <span class="page-status">Visible</span>
+                            </div>
+                            <div class="page-item">
+                                <label>
+                                    <input type="checkbox" class="page-toggle" data-page="portfolio" checked>
+                                    Portfolio
+                                </label>
+                                <span class="page-status">Visible</span>
+                            </div>
+                            <div class="page-item">
+                                <label>
+                                    <input type="checkbox" class="page-toggle" data-page="contact" checked>
+                                    Contact
+                                </label>
+                                <span class="page-status">Visible</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3>Page Order</h3>
+                        <p class="info-text">Pages are displayed in their natural order. Visibility can be toggled above.</p>
+                        <button class="btn btn-secondary" onclick="resetPageOrder()">Reset to Default Order</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ANIMATIONS SECTION -->
+            <section class="dashboard-section" id="animations">
+                <h2 class="section-title">Animation Settings</h2>
+                <div class="settings-grid">
+                    <div class="card">
+                        <h3>Global Animation Control</h3>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" id="animationsMasterToggle" checked> Enable All Animations
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label>Animation Speed</label>
+                            <select id="animationSpeed" class="form-input">
+                                <option value="slow">Slow (0.8x)</option>
+                                <option value="normal" selected>Normal (1x)</option>
+                                <option value="fast">Fast (1.5x)</option>
+                            </select>
+                            <button class="btn btn-primary" onclick="saveAnimationSpeed()">Apply</button>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3>Animation Effects</h3>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" class="animation-toggle" data-animation="hover" checked> Hover Effects
+                            </label>
+                            <label>
+                                <input type="checkbox" class="animation-toggle" data-animation="scroll" checked> Scroll Animations
+                            </label>
+                            <label>
+                                <input type="checkbox" class="animation-toggle" data-animation="glow" checked> Glow Effects
+                            </label>
+                            <label>
+                                <input type="checkbox" class="animation-toggle" data-animation="gradient" checked> Gradient Animations
+                            </label>
+                            <label>
+                                <input type="checkbox" class="animation-toggle" data-animation="particles" checked> Particle Effects
+                            </label>
+                        </div>
+                        <button class="btn btn-primary" onclick="saveAnimationSettings()">Save</button>
+                    </div>
+
+                    <div class="card">
+                        <h3>Animation Preview</h3>
+                        <div class="animation-preview">
+                            <div class="preview-box bounce">Click to Preview</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- LANGUAGES SECTION -->
+            <section class="dashboard-section" id="languages">
+                <h2 class="section-title">Language Management</h2>
+                <div class="settings-grid">
+                    <div class="card">
+                        <h3>English Translations</h3>
+                        <div id="englishTranslations" class="translations-list">
+                            <!-- Will be populated by JS -->
+                        </div>
+                        <button class="btn btn-primary" onclick="saveEnglishTranslations()">Save All</button>
+                    </div>
+
+                    <div class="card">
+                        <h3>Arabic Translations (العربية)</h3>
+                        <div id="arabicTranslations" class="translations-list">
+                            <!-- Will be populated by JS -->
+                        </div>
+                        <button class="btn btn-primary" onclick="saveArabicTranslations()">Save All</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- LIVE PREVIEW SECTION -->
+            <section class="dashboard-section" id="preview">
+                <h2 class="section-title">Live Preview</h2>
+                <div class="preview-container">
+                    <div class="preview-header">
+                        <h3>Website Preview</h3>
+                        <button class="btn btn-secondary" onclick="refreshPreview()">Refresh Preview</button>
+                    </div>
+                    <iframe id="previewFrame" class="preview-iframe" src="../index.html"></iframe>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="dashboard-footer">
+        <p>&copy; 2026 Norama Tech Dashboard. <button onclick="clearAllData()" class="btn btn-danger">Clear All Data</button></p>
+    </footer>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>

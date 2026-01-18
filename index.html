@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Norama Tech - Cyber Security & Tech Solutions</title>
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text" id="logoText">Norama Tech</span>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <a href="#home" class="nav-link" data-section="home">Home</a>
+                <a href="#about" class="nav-link" data-section="about">About</a>
+                <a href="#services" class="nav-link" data-section="services">Services</a>
+                <a href="#courses" class="nav-link" data-section="courses">Courses</a>
+                <a href="#portfolio" class="nav-link" data-section="portfolio">Portfolio</a>
+                <a href="#contact" class="nav-link" data-section="contact">Contact</a>
+            </div>
+            <div class="nav-controls">
+                <button class="theme-toggle" id="themeToggle" title="Toggle Dark/Light Mode">
+                    <svg class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <select class="language-select" id="languageSelect">
+                    <option value="en">EN</option>
+                    <option value="ar">AR</option>
+                </select>
+                <a href="dashboard/dashboard.html" class="dashboard-link" id="dashboardLink">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <rect x="3" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="14" width="7" height="7"></rect>
+                        <rect x="3" y="14" width="7" height="7"></rect>
+                    </svg>
+                </a>
+                <button class="menu-toggle" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        
+        <!-- HOME SECTION -->
+        <section id="home" class="section hero-section">
+            <div class="hero-background">
+                <div class="cyber-grid"></div>
+                <div class="cyber-orb orb-1"></div>
+                <div class="cyber-orb orb-2"></div>
+                <div class="glitch-line"></div>
+            </div>
+            <div class="section-container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1 class="hero-title" id="heroTitle">Welcome to Norama Tech</h1>
+                        <p class="hero-subtitle" id="heroSubtitle">Next Generation Cyber Security & Tech Solutions</p>
+                        <p class="hero-description" id="heroDescription">
+                            Empowering businesses with cutting-edge technology, robust security, and innovative solutions
+                        </p>
+                        <button class="cta-button primary" id="ctaButton">Get Started</button>
+                    </div>
+                    <div class="hero-visual">
+                        <div class="rotating-cube">
+                            <div class="cube-face front">CS</div>
+                            <div class="cube-face back">WD</div>
+                            <div class="cube-face right">APP</div>
+                            <div class="cube-face left">AI</div>
+                            <div class="cube-face top">SOFT</div>
+                            <div class="cube-face bottom">TRAIN</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section id="about" class="section about-section">
+            <div class="section-container">
+                <h2 class="section-title" id="aboutTitle">About Norama Tech</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3 id="aboutSubtitle">Who We Are</h3>
+                        <p id="aboutDescription">
+                            Norama Tech is a leading global technology company specializing in cybersecurity, 
+                            web development, and innovative software solutions. We combine cutting-edge technology 
+                            with creative excellence to deliver transformative results.
+                        </p>
+                        <h3 id="visionTitle">Our Vision</h3>
+                        <p id="visionDescription">
+                            To be the most trusted technology partner for businesses worldwide, driving digital 
+                            transformation through innovation, security, and excellence.
+                        </p>
+                    </div>
+                    <div class="about-stats">
+                        <div class="stat-card">
+                            <div class="stat-number" id="stat1">500+</div>
+                            <div class="stat-label" id="statLabel1">Projects Completed</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" id="stat2">50+</div>
+                            <div class="stat-label" id="statLabel2">Expert Team</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" id="stat3">15+</div>
+                            <div class="stat-label" id="statLabel3">Years Experience</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" id="stat4">30+</div>
+                            <div class="stat-label" id="statLabel4">Countries Served</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES SECTION -->
+        <section id="services" class="section services-section">
+            <div class="section-container">
+                <h2 class="section-title" id="servicesTitle">Our Services</h2>
+                <div class="services-grid" id="servicesGrid">
+                    <!-- Services will be populated by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- CYBER SECURITY SECTION -->
+        <section id="cybersecurity" class="section cyber-section">
+            <div class="section-container">
+                <h2 class="section-title" id="cyberTitle">Cyber Security & Penetration Testing</h2>
+                <div class="cyber-content">
+                    <div class="cyber-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">🛡️</div>
+                            <h3 id="feature1Title">Network Security</h3>
+                            <p id="feature1Desc">Advanced threat detection and prevention systems</p>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">🔐</div>
+                            <h3 id="feature2Title">Penetration Testing</h3>
+                            <p id="feature2Desc">Comprehensive security assessment and vulnerability analysis</p>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">🔍</div>
+                            <h3 id="feature3Title">Threat Analysis</h3>
+                            <p id="feature3Desc">Real-time monitoring and incident response</p>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">🛡️</div>
+                            <h3 id="feature4Title">Data Protection</h3>
+                            <p id="feature4Desc">Enterprise-grade encryption and data security</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- COURSES & TRAINING SECTION -->
+        <section id="courses" class="section courses-section">
+            <div class="section-container">
+                <h2 class="section-title" id="coursesTitle">Courses & Training</h2>
+                <div class="courses-grid" id="coursesGrid">
+                    <!-- Courses will be populated by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- PORTFOLIO SECTION -->
+        <section id="portfolio" class="section portfolio-section">
+            <div class="section-container">
+                <h2 class="section-title" id="portfolioTitle">Portfolio & Projects</h2>
+                <div class="portfolio-grid" id="portfolioGrid">
+                    <!-- Portfolio items will be populated by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="section contact-section">
+            <div class="section-container">
+                <h2 class="section-title" id="contactTitle">Get in Touch</h2>
+                <div class="contact-content">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <input type="text" class="form-input" placeholder="Your Name" id="formName" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-input" placeholder="Your Email" id="formEmail" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-input" placeholder="Subject" id="formSubject" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-input" placeholder="Your Message" rows="5" id="formMessage" required></textarea>
+                        </div>
+                        <button type="submit" class="cta-button primary" id="formSubmit">Send Message</button>
+                    </form>
+                    <div class="contact-info">
+                        <div class="info-item">
+                            <h4 id="contactEmail">Email:</h4>
+                            <p>info@noramatech.com</p>
+                        </div>
+                        <div class="info-item">
+                            <h4 id="contactPhone">Phone:</h4>
+                            <p>+1 (555) 123-4567</p>
+                        </div>
+                        <div class="info-item">
+                            <h4 id="contactLocation">Location:</h4>
+                            <p>Global Tech Hub</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="section-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4 id="footerAbout">About</h4>
+                    <p id="footerAboutText">Leading cybersecurity and tech solutions provider</p>
+                </div>
+                <div class="footer-section">
+                    <h4 id="footerServices">Services</h4>
+                    <ul id="footerServicesList">
+                        <li><a href="#services">Cyber Security</a></li>
+                        <li><a href="#services">Web Development</a></li>
+                        <li><a href="#services">Mobile Apps</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 id="footerFollow">Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link">Twitter</a>
+                        <a href="#" class="social-link">LinkedIn</a>
+                        <a href="#" class="social-link">GitHub</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p id="footerCopyright">&copy; 2026 Norama Tech. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Tutorial - Norama Tech</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a, #1a1a2e);
+            color: #ffffff;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .hero {
+            background: rgba(26, 26, 46, 0.8);
+            border: 1px solid #00ff88;
+            border-radius: 16px;
+            padding: 60px 40px;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 0 40px rgba(0, 255, 136, 0.2);
+        }
+        
+        h1 {
+            background: linear-gradient(135deg, #00ff88, #ff0099, #00d9ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            color: #b0b0b0;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, #00ff88, #ff0099);
+            color: #0a0a0a;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.4);
+        }
+        
+        h2 {
+            color: #00ff88;
+            font-size: 2rem;
+            margin-top: 50px;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #ff0099;
+            padding-bottom: 15px;
+        }
+        
+        .tutorial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .tutorial-card {
+            background: rgba(26, 26, 46, 0.6);
+            border: 1px solid #00d9ff;
+            border-radius: 12px;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .tutorial-card:hover {
+            border-color: #00ff88;
+            background: rgba(26, 26, 46, 0.8);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.2);
+        }
+        
+        .tutorial-card h3 {
+            color: #00d9ff;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .tutorial-card p {
+            color: #b0b0b0;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .tutorial-card ol, .tutorial-card ul {
+            color: #b0b0b0;
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+        
+        .tutorial-card li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+        
+        .section {
+            background: rgba(26, 26, 46, 0.6);
+            border: 1px solid #3a3a4e;
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .section h3 {
+            color: #00ff88;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .section p {
+            color: #b0b0b0;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        .section ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .section li {
+            color: #b0b0b0;
+            margin-bottom: 10px;
+            line-height: 1.8;
+        }
+        
+        .highlight {
+            background: rgba(0, 255, 136, 0.1);
+            border-left: 4px solid #00ff88;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 6px;
+        }
+        
+        .highlight strong {
+            color: #00ff88;
+        }
+        
+        .code-example {
+            background: #0a0a0a;
+            border: 1px solid #00ff88;
+            padding: 15px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            color: #00ff88;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+        
+        .tip {
+            background: rgba(0, 217, 255, 0.1);
+            border-left: 4px solid #00d9ff;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 6px;
+            color: #00d9ff;
+        }
+        
+        .warning {
+            background: rgba(255, 68, 68, 0.1);
+            border-left: 4px solid #ff4444;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 6px;
+            color: #ff4444;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            border-top: 1px solid #3a3a4e;
+            margin-top: 50px;
+            color: #666;
+        }
+        
+        .feature-badge {
+            display: inline-block;
+            background: #00ff88;
+            color: #0a0a0a;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <h1>📊 Dashboard Tutorial</h1>
+            <p>Learn how to manage your Norama Tech website without any coding</p>
+            <a href="dashboard/dashboard.html" class="btn">Open Dashboard →</a>
+        </div>
+
+        <h2>🎯 Dashboard Overview</h2>
+        <p style="color: #b0b0b0; margin-bottom: 30px;">
+            The dashboard gives you complete control over your website. You can change colors, 
+            content, animations, and more—all from a beautiful admin panel.
+        </p>
+
+        <div class="tutorial-grid">
+            <div class="tutorial-card">
+                <h3>⚙️ General Settings</h3>
+                <p>Configure basic website settings:</p>
+                <ul>
+                    <li>Company name and logo</li>
+                    <li>Default theme (dark/light)</li>
+                    <li>Default language</li>
+                    <li>Section visibility</li>
+                </ul>
+            </div>
+
+            <div class="tutorial-card">
+                <h3>📝 Content Management</h3>
+                <p>Edit all website text:</p>
+                <ul>
+                    <li>Hero section content</li>
+                    <li>About section text</li>
+                    <li>Call-to-action button</li>
+                    <li>Vision statement</li>
+                </ul>
+            </div>
+
+            <div class="tutorial-card">
+                <h3>🎨 Design & Colors</h3>
+                <p>Customize the visual design:</p>
+                <ul>
+                    <li>Pick custom colors</li>
+                    <li>Change font family</li>
+                    <li>Adjust font size</li>
+                    <li>Border radius & shadows</li>
+                </ul>
+            </div>
+
+            <div class="tutorial-card">
+                <h3>📄 Page Management</h3>
+                <p>Control page visibility:</p>
+                <ul>
+                    <li>Show/hide pages</li>
+                    <li>Toggle sections</li>
+                    <li>Reorder pages</li>
+                    <li>Reset defaults</li>
+                </ul>
+            </div>
+
+            <div class="tutorial-card">
+                <h3>✨ Animation Control</h3>
+                <p>Manage animations:</p>
+                <ul>
+                    <li>Enable/disable all animations</li>
+                    <li>Adjust animation speed</li>
+                    <li>Toggle effect types</li>
+                    <li>Preview animations</li>
+                </ul>
+            </div>
+
+            <div class="tutorial-card">
+                <h3>🌐 Languages</h3>
+                <p>Edit translations:</p>
+                <ul>
+                    <li>English translations</li>
+                    <li>Arabic translations</li>
+                    <li>Instant preview</li>
+                    <li>Full RTL support</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2>📚 Step-by-Step Tutorials</h2>
+
+        <div class="section">
+            <h3>Tutorial 1: Change Company Name</h3>
+            <ol>
+                <li>Open <strong>Dashboard</strong></li>
+                <li>Go to <strong>General Settings</strong></li>
+                <li>Find <strong>"Company Name"</strong> field</li>
+                <li>Enter new name (e.g., "MyTech Solutions")</li>
+                <li>Click <strong>"Save"</strong> button</li>
+                <li>Watch the name update on the website in real-time!</li>
+            </ol>
+            <div class="highlight">
+                <strong>✨ Tip:</strong> The name appears in the logo area and page title. 
+                Changes sync instantly across all pages.
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>Tutorial 2: Change Brand Colors</h3>
+            <ol>
+                <li>Open <strong>Dashboard</strong></li>
+                <li>Go to <strong>Design & Colors</strong></li>
+                <li>Click on <strong>color picker</strong> next to "Primary Color"</li>
+                <li>Choose your desired color from color wheel</li>
+                <li>Click <strong>"Apply"</strong></li>
+                <li>See website colors change instantly!</li>
+                <li>Repeat for Secondary and Tertiary colors</li>
+            </ol>
+            <div class="tip">
+                <strong>💡 Pro Tip:</strong> Primary color is used most frequently on buttons 
+                and accents. Choose a color that represents your brand!
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>Tutorial 3: Edit Website Content</h3>
+            <ol>
+                <li>Open <strong>Dashboard</strong></li>
+                <li>Go to <strong>Content</strong> tab</li>
+                <li>Find the content you want to edit</li>
+                <li>Update the text in the input fields</li>
+                <li>Click <strong>"Update"</strong></li>
+                <li>Check <strong>Live Preview</strong> to see changes</li>
+            </ol>
+            <p style="color: #b0b0b0; margin-top: 15px;">
+                <strong>You can edit:</strong>
+            </p>
+            <ul>
+                <li>Hero title and subtitle</li>
+                <li>Hero description</li>
+                <li>About section text</li>
+                <li>Vision statement</li>
+                <li>Call-to-action button text</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h3>Tutorial 4: Control Page Visibility</h3>
+            <ol>
+                <li>Open <strong>Dashboard</strong></li>
+                <li>Go to <strong>Pages</strong> tab</li>
+                <li>You'll see all available pages listed</li>
+                <li>Check/uncheck the checkbox to show/hide pages</li>
+                <li>Hidden pages won't appear in navigation menu</li>
+                <li>Changes save automatically</li>
+            </ol>
+            <div class="highlight">
+                <strong>📌 Note:</strong> Hidden pages are not deleted, just not visible. 
+                You can show them again anytime!
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>Tutorial 5: Adjust Animations</h3>
+            <ol>
+                <li>Open <strong>Dashboard</strong></li>
+                <li>Go to <strong>Animations</strong> tab</li>
+                <li>Toggle <strong>"Enable All Animations"</strong> on/off</li>
+                <li>Adjust <strong>Animation Speed</strong> (Slow/Normal/Fast)</li>
+                <li>Toggle individual animation types on/off</li>
+                <li>Click preview box to see animation in action</li>
+                <li>Changes apply instantly to website</li>
+            </ol>
+            <div class="tip">
+                <strong>💡 For slow internet:</strong> Consider disabling animations 
+                or setting to "Slow" speed for better performance.
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>Tutorial 6: Change Language Translations</h3>
+            <ol>
+                <li>Open <strong>Dashboard</strong></li>
+                <li>Go to <strong>Languages</strong> tab</li>
+                <li>Choose <strong>English Translations</strong> or <strong>Arabic Translations</strong></li>
+                <li>Click on any field to edit text</li>
+                <li>Make your changes</li>
+                <li>Click <strong>"Save All"</strong></li>
+                <li>Website updates with new translations</li>
+            </ol>
+            <div class="highlight">
+                <strong>🌍 RTL Support:</strong> Arabic text is automatically displayed 
+                right-to-left. Just edit and save!
+            </div>
+        </div>
+
+        <h2>🎨 Design Customization Tips</h2>
+
+        <div class="section">
+            <h3>Color Palette Guide</h3>
+            <p>Choose colors that match your brand:</p>
+            <ul>
+                <li><strong>Primary Color:</strong> Most-used color (buttons, accents, important text)</li>
+                <li><strong>Secondary Color:</strong> Complementary color (hover effects, highlights)</li>
+                <li><strong>Tertiary Color:</strong> Accent color (borders, special elements)</li>
+            </ul>
+            <div class="tip">
+                <strong>💡 Color Scheme Ideas:</strong><br>
+                • Tech: Blue, Purple, Pink<br>
+                • Nature: Green, Brown, Teal<br>
+                • Creative: Orange, Pink, Purple<br>
+                • Professional: Blue, Gray, Orange
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>Font Selection</h3>
+            <p>Choose fonts that represent your brand:</p>
+            <ul>
+                <li><strong>Segoe UI:</strong> Modern, professional (default)</li>
+                <li><strong>Arial:</strong> Clean, simple</li>
+                <li><strong>Times New Roman:</strong> Classic, formal</li>
+                <li><strong>Courier New:</strong> Technical, monospace</li>
+            </ul>
+        </div>
+
+        <h2>💾 Data & Storage</h2>
+
+        <div class="section">
+            <h3>How Your Data is Stored</h3>
+            <p>All your changes are saved to browser's <strong>LocalStorage</strong>:</p>
+            <ul>
+                <li>✅ No server needed</li>
+                <li>✅ No backend required</li>
+                <li>✅ Data stays on your computer</li>
+                <li>✅ Instant save (no manual saving)</li>
+                <li>✅ Persists across browser sessions</li>
+            </ul>
+            <div class="warning">
+                <strong>⚠️ Warning:</strong> If you clear browser data/cache, 
+                your changes will be lost. Export your data regularly!
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>Backup Your Settings</h3>
+            <ol>
+                <li>Open browser <strong>DevTools (F12)</strong></li>
+                <li>Go to <strong>Application</strong> tab</li>
+                <li>Find <strong>LocalStorage</strong></li>
+                <li>Copy all key-value pairs</li>
+                <li>Save to a text file as backup</li>
+            </ol>
+            <p style="color: #b0b0b0; margin-top: 15px;">
+                Or use this code in DevTools console:
+            </p>
+            <div class="code-example">
+// Export LocalStorage as JSON
+JSON.stringify(localStorage)
+            </div>
+        </div>
+
+        <h2>🚀 Advanced Features</h2>
+
+        <div class="section">
+            <h3>Live Preview</h3>
+            <p>The dashboard includes an embedded live preview of your website:</p>
+            <ul>
+                <li>See changes in real-time without leaving dashboard</li>
+                <li>Test responsiveness by resizing the preview</li>
+                <li>Click "Refresh Preview" if updates don't appear</li>
+                <li>Use full browser to test mobile view</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h3>Theme Toggle</h3>
+            <p>Dashboard has its own dark/light mode separate from website:</p>
+            <ul>
+                <li>Click moon/sun icon in top-right</li>
+                <li>Preference is saved</li>
+                <li>Doesn't affect website's theme setting</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h3>Mobile Navigation</h3>
+            <p>Dashboard works on mobile devices:</p>
+            <ul>
+                <li>Sidebar becomes collapsible on small screens</li>
+                <li>Click hamburger menu to show/hide sidebar</li>
+                <li>Swipe to navigate sections</li>
+                <li>Fully responsive design</li>
+            </ul>
+        </div>
+
+        <h2>❓ FAQ</h2>
+
+        <div class="section">
+            <h3>Q: Can I undo changes?</h3>
+            <p style="color: #b0b0b0;">
+                A: Yes! Changes are saved automatically. To undo, just change values back 
+                to previous settings. Or click "Clear All Data" to reset to defaults.
+            </p>
+
+            <h3>Q: Will changes affect other users?</h3>
+            <p style="color: #b0b0b0;">
+                A: No. Each visitor's browser stores data locally. Changes you make affect 
+                only your copy. To affect all visitors, deploy changes to your server.
+            </p>
+
+            <h3>Q: Can I add new pages?</h3>
+            <p style="color: #b0b0b0;">
+                A: Yes! Edit index.html to add new sections and update main.js to include 
+                them in navigation. Current dashboard toggles existing pages.
+            </p>
+
+            <h3>Q: Is my contact form data secure?</h3>
+            <p style="color: #b0b0b0;">
+                A: Yes. Data is stored locally in your browser only. Never sent to any server. 
+                No one else can see it unless they have access to your computer.
+            </p>
+
+            <h3>Q: Can I export my settings?</h3>
+            <p style="color: #b0b0b0;">
+                A: Yes! Use browser DevTools to export LocalStorage data. Save as JSON file 
+                for backup or sharing with team members.
+            </p>
+        </div>
+
+        <div class="highlight" style="margin-top: 50px;">
+            <strong>🎉 Ready to customize?</strong><br>
+            <a href="dashboard/dashboard.html" class="btn" style="margin-top: 15px; display: inline-block;">
+                Open Dashboard Now →
+            </a>
+        </div>
+
+        <footer>
+            <p>Norama Tech © 2026 | Dashboard Tutorial</p>
+            <p>For more help, check README.md or open browser DevTools (F12)</p>
+        </footer>
+    </div>
+</body>
+</html>
